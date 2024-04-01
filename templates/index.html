@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home · {{ config.title }} 
+{% endblock title %}
+
+{% block content %}
+<main class="michael-byrne">
+  <ul class="post-list">
+    {% set articles = get_section(path="articles/_index.md") %}
+    {% for article in articles.pages %}
+      <li>
+        <span class="post-meta">
+          {{ article.date | date(format="%A %d %B, %Y") }}
+        </span>
+        <h1>
+          <a href="{{ article.permalink }}">
+            {{ article.title }}
+          </a>
+        </h1>
+      </li>
+    {% endfor %}
+  </ul>
+</main>
+{% endblock content %}

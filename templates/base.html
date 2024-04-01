@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %} {{ config.title }} {% endblock title %}</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" href="/images/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/images/icon.webp" type="image/webp">
+    {% block extra_head %}
+      <meta name="description" content="{{ config.description }}">
+    {% endblock extra_head %}
+  </head>
+  <body>
+    <header class="michael-byrne">
+      <div class="splash">
+        <a class="harold" href="/">
+          {% set harold = resize_image(path="/images/harold.webp", width=150, height=150) %}
+          <img src="{{ harold.url }}" alt="Spotted dove"/>
+        </a>
+        <div class="title">
+          <div class="site-title">
+            <a href="{{ config.base_url }}">{{ config.title }}</a>
+          </div>
+          <div class="site-subtitle">{{ config.description }}</div>
+        </div>
+      </div>
+      <nav class="michael-byrne">
+        {% for link in config.extra.links %}
+        <a href="{{ link.url }}">{{ link.name }}</a>
+        {% endfor %}
+      </nav>
+    </header>
+    {% block content %} {% endblock %}
+    <footer class="michael-byrne">
+      <div class="details">
+        <div class="links">
+          Michael Byrne {% for social in config.extra.socials %} ·
+          <a href="{{ social.url }}" target="_blank"> {{ social.name }} </a>
+          {% endfor %}
+           · <a href="/atom.xml">RSS Feed</a>
+        </div>
+        <div class="email">
+          <a href="mailto:{{ config.extra.email }}">
+            {{ config.extra.email }}
+          </a>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; {{ now() | date(format="%Y") }} Michael Byrne
+      </div>
+    </footer>
+  </body>
+</html>

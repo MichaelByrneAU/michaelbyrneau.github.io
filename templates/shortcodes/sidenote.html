@@ -1,0 +1,5 @@
+<input type="checkbox" id="sidenote-{{ nth }}" class="sidenote-toggle" hidden>
+<label for="sidenote-{{ nth }}" class="sidenote-number"></label>
+<small class="sidenote">
+  {{ body | markdown(inline=true) | safe }}
+</small>
