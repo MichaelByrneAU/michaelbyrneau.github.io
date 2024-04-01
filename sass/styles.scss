@@ -18,7 +18,7 @@ $link-colour: #276ca1;
 
 $middle-breakpoint: 60em;
 $large-breakpoint: 90em;
-$very-small-screen-width: 290px;
+$very-small-screen-width: 400px;
 
 // ----------------------------------------------------------------------------
 // Global initialisation.
@@ -124,7 +124,7 @@ header.michael-byrne {
   }
   @media(max-width: $very-small-screen-width) {
     .harold {
-      display: none;
+      // display: none;
     }
   }
 
