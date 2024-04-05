@@ -12,7 +12,7 @@ $max-content-width: 750px;
 
 $text-colour: #222;
 $text-deep-colour: black;
-$dark-grey: #8a8a8a;
+$dark-grey: #6b6b6b;
 $light-grey: #e8e8e8;
 $link-colour: #276ca1;
 
@@ -114,13 +114,12 @@ header.michael-byrne {
   .harold {
     @include vr.set(
       $height: 3,
-      $padding-right: 0.5,
+      $margin-right: 0.5,
     );
-
-    img {
-      height: 100%;
-      aspect-ratio: 1;
-    } 
+    aspect-ratio: 1;
+    background-image: url('images/harold_75x75.webp');
+    background-size: cover;
+    background-position: center;
   }
   @media(max-width: $very-small-screen-width) {
     .harold {
